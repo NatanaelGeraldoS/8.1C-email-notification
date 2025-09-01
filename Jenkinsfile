@@ -19,7 +19,7 @@ pipeline {
                     emailext (
                         subject: "Test - ${currentBuild.currentResult}",
                         body: "The test stage finished with status: ${currentBuild.currentResult}",
-                        to: "s225000297@deakin.edu.au",
+                        to: "geraldonatanael84@gmail.com",
                         attachmentsPattern: "logs/test.log"
                     )
                 }
@@ -35,7 +35,7 @@ pipeline {
                     emailext (
                         subject: "Security Scan - ${currentBuild.currentResult}",
                         body: "The Security Scan stage finished with status: ${currentBuild.currentResult}",
-                        to: "s225000297@deakin.edu.au",
+                        to: "geraldonatanael84@gmail.com",
                         attachmentsPattern: "logs/security.log"
                     )
                 }
