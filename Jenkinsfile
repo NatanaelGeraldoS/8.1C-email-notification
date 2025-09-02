@@ -19,11 +19,11 @@ pipeline {
             post {
                 always {
                     emailext (
-                        subject: "#${currentBuild.BUILD_NUMBER} - Test - ${currentBuild.currentResult}",
-                        body: """Build Number: #${currentBuild.BUILD_NUMBER}
+                        subject: "#${env.BUILD_NUMBER} - Test - ${currentBuild.currentResult}",
+                        body: """Build Number: #${env.BUILD_NUMBER}
                 Workspace: ${env.WORKSPACE}
                 Duration: ${currentBuild.durationString}
-                
+
                 The test stage finished with status: ${currentBuild.currentResult}
                 """,
                         to: "geraldonatanael84@gmail.com",
@@ -44,8 +44,8 @@ pipeline {
             post {
                 always {
                     emailext (
-                        subject: "#${currentBuild.BUILD_NUMBER} - Security Scan - ${currentBuild.currentResult}",
-                        body: """Build Number: #${currentBuild.BUILD_NUMBER}
+                        subject: "#${env.BUILD_NUMBER} - Security Scan - ${currentBuild.currentResult}",
+                        body: """Build Number: #${env.BUILD_NUMBER}
                 Workspace: ${env.WORKSPACE}
                 Duration: ${currentBuild.durationString}
 
@@ -56,6 +56,7 @@ pipeline {
                         attachmentsPattern: "logs/security.log"
                     )
                 }
+
 
             }
         }
